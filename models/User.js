@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name:{
         type: String,
         maxlength: 50
@@ -24,14 +24,14 @@ const userSchema = mongoose.Schema({
     },
     image: String,
     token: {
-        type: toString,
+        type: String
+    },
         tokenExp: {
             type: Number
         }
-    }
 })
 
 const User = mongoose.model('User',userSchema)
 //모델로 감싸주기
-module.exports = {User}
+module.exports = { User }
 //다른 곳에서도 쓸 수 있게 모듈로 
